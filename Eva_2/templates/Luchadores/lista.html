@@ -1,0 +1,35 @@
+{% extends "luchadores/base.html" %}
+
+{% block title %}Lista de Luchadores{% endblock %}
+
+{% block content %}
+<h1>Lista de Luchadores</h1>
+<ul>
+    {% for luchador in luchadores %}
+        <li class="luchador-item">
+            <strong>Nombre:</strong> {{ luchador.nombre }}<br>
+            <strong>Categoría:</strong> {{ luchador.categoria }}<br>
+            <strong>Peso:</strong> {{ luchador.peso }} kg<br>
+            <strong>Altura:</strong> {{ luchador.altura }} m<br>
+            <strong>Nacionalidad:</strong> {{ luchador.nacionalidad }}<br>
+            <strong>Récord:</strong> {{ luchador.record }}<br>
+            
+            {% if luchador.imagen %}
+                <img src="{{ luchador.imagen.url }}" alt="{{ luchador.nombre }}" class="luchador-img">
+            {% endif %}
+            
+            <!-- Botones de Editar y Eliminar -->
+            <div class="botones">
+                <!-- Botón de Editar -->
+                <a href="{% url 'editar_luchador' luchador_id=luchador.id %}" class="btn btn-warning">Editar</a>
+
+                <!-- Botón de Eliminar -->
+                <a href="{% url 'eliminar_luchador' luchador_id=luchador.id %}" class="btn btn-danger" onclick="return confirm('¿Estás seguro de que quieres eliminar este luchador?');">Eliminar</a>
+            </div>
+        </li>
+        <hr>
+    {% endfor %}
+</ul>
+
+<a href="{% url 'crear_luchador' %}" class="btn btn-primary">Agregar nuevo luchador</a>
+{% endblock %}

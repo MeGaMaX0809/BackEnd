@@ -1,0 +1,10 @@
+<!-- Eva_2/templates/luchadores/index.html -->
+{% extends "luchadores/base.html" %}
+
+{% block title %}Página Principal{% endblock %}
+
+{% block content %}
+<h1>Bienvenido a la Aplicación de Luchadores</h1>
+<p>Esta aplicación te permite gestionar luchadores de UFC.</p>
+<a href="{% url 'listar_luchadores' %}">Ver lista de luchadores</a>
+{% endblock %}

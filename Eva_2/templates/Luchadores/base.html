@@ -1,0 +1,31 @@
+<!-- Eva_2/templates/luchadores/base.html -->
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Mi Aplicación{% endblock %}</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}"> <!-- Enlace a un CSS externo si lo tienes -->
+</head>
+<body>
+    <header>
+        <h1>Bienvenido a la Aplicación de Luchadores</h1>
+        <nav>
+            <ul>
+                <li><a href="{% url 'listar_luchadores' %}">Inicio</a></li>
+                <li><a href="{% url 'crear_luchador' %}">Agregar Luchador</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        {% block content %}
+        {% endblock %}
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Mi Aplicación</p>
+    </footer>
+</body>
+</html>

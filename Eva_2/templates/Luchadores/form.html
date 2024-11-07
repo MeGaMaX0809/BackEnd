@@ -1,0 +1,19 @@
+{% extends "luchadores/base.html" %}
+
+{% block title %}Crear/Editar Luchador{% endblock %}
+
+{% block content %}
+<h1>{% if form.instance.id %}Editar Luchador{% else %}Crear Luchador{% endif %}</h1>
+<form method="post" enctype="multipart/form-data">  <!-- Importante para subir imágenes -->
+    {% csrf_token %}
+    {{ form.as_p }}
+
+    {% if form.instance.imagen %}
+        <p><strong>Imagen actual:</strong></p>
+        <img src="{{ form.instance.imagen.url }}" alt="Imagen actual" width="100">
+        <p><strong>¿Eliminar imagen?</strong> <input type="checkbox" name="eliminar_imagen"></p>
+    {% endif %}
+
+    <button type="submit">Guardar</button>
+</form>
+{% endblock %}
