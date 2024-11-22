@@ -1,0 +1,38 @@
+{% extends "luchadores/base.html" %}
+
+{% block title %}Detalles del Evento{% endblock %}
+
+{% block content %}
+<h1>Detalles del Evento</h1>
+<p><strong>Nombre:</strong> {{ evento.nombre }}</p>
+<p><strong>Fecha:</strong> {{ evento.fecha }}</p>
+<p><strong>Lugar:</strong> {{ evento.lugar }}</p>
+
+<!-- Mostrar la imagen del evento si existe -->
+{% if evento.imagen %}
+    <p><strong>Imagen del Evento:</strong></p>
+    <img src="{{ evento.imagen.url }}" alt="Imagen del evento" style="max-width: 400px;">
+{% else %}
+    <p>No hay imagen para este evento.</p>
+{% endif %}
+
+<h3>Luchadores Participantes:</h3>
+<ul>
+    {% for luchador in evento.luchadores.all %}
+        <li>
+            <strong>{{ luchador.nombre }}</strong><br>
+            <!-- Mostrar imagen del luchador si existe -->
+            {% if luchador.imagen %}
+                <img src="{{ luchador.imagen.url }}" alt="Imagen de {{ luchador.nombre }}" style="max-width: 100px; height: auto;">
+            {% else %}
+                <p>No hay imagen para este luchador.</p>
+            {% endif %}
+        </li>
+    {% empty %}
+        <li>No hay luchadores asignados a este evento.</li>
+    {% endfor %}
+</ul>
+
+<a href="{% url 'editar_evento' evento.id %}" class="btn btn-warning">Editar</a>
+<a href="{% url 'eliminar_evento' evento.id %}" class="btn btn-danger" onclick="return confirm('¿Estás seguro de eliminar este evento?');">Eliminar</a>
+{% endblock %}

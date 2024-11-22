@@ -1,54 +1,135 @@
-/* Eva_2/static/css/styles.css */
+/* Estilo general para el cuerpo de la página */
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Arial', sans-serif;
     line-height: 1.6;
     margin: 0;
     padding: 0;
 }
 
+/* Estilo para el encabezado (Header) */
 header {
     background-color: #333;
     color: white;
-    padding: 10px 0;
+    padding: 20px;
     text-align: center;
 }
 
+header h1 {
+    font-size: 2.5rem;
+}
+
+/* Estilo para la barra de navegación */
 nav ul {
     list-style-type: none;
     padding: 0;
+    margin: 0;
 }
 
 nav ul li {
     display: inline;
-    margin-right: 15px;
+    margin-right: 20px;
 }
 
 nav a {
     color: white;
     text-decoration: none;
+    font-weight: bold;
 }
 
 nav a:hover {
     text-decoration: underline;
 }
 
+/* Estilo para el contenido principal */
 main {
-    padding: 20px;
+    padding: 40px 20px;
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
+/* Estilo para los formularios */
 form div {
-    margin-bottom: 10px;
+    margin-bottom: 15px;
 }
 
-.luchador-img {
-    max-width: 100px;
-    height: auto;
+form label {
+    font-weight: bold;
+}
+
+input, select, button {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
     border: 1px solid #ccc;
     border-radius: 5px;
 }
 
+/* Estilo para las imágenes de luchadores */
+.luchador-img {
+    max-width: 150px;
+    height: auto;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Estilo para los botones */
+.btn {
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.btn-primary {
+    background-color: #28a745;
+    border: none;
+}
+
+.btn-primary:hover {
+    background-color: #218838;
+    transform: scale(1.1); /* Efecto de aumento al pasar el mouse */
+}
+
+.btn-warning {
+    background-color: #ffc107;
+    border: none;
+}
+
+.btn-warning:hover {
+    background-color: #e0a800;
+    transform: scale(1.1);
+}
+
+.btn-danger {
+    background-color: #dc3545;
+    border: none;
+}
+
+.btn-danger:hover {
+    background-color: #c82333;
+    transform: scale(1.1);
+}
+
+/* Estilo para el pie de página */
 footer {
     text-align: center;
     padding: 10px 0;
     background-color: #f0f0f0;
+    font-size: 0.9rem;
+}
+
+/* Mejoras para la vista de detalles y listas */
+h3 {
+    margin-top: 20px;
+    font-size: 1.5rem;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+ul li {
+    margin-bottom: 10px;
 }

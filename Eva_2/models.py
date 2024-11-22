@@ -16,6 +16,8 @@ class Luchador(models.Model):
         # Validaciones personalizadas
         if self.peso <= 0:
             raise ValueError('El peso debe ser un número positivo.')
+        if self.peso < 45 or self.peso > 150:
+            raise ValueError('El peso debe estar entre 45 kg y 150 kg.')
         if self.altura <= 0:
             raise ValueError('La altura debe ser un número positivo.')
         

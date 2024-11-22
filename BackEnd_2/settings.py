@@ -20,7 +20,9 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'Eva_2',  # Tu aplicación
+    'Eva_2',
+    'eventos',# Tu aplicación
+    'widget_tweaks',
 ]
 
 MIDDLEWARE = [
@@ -91,6 +93,10 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 STATIC_URL = '/static/'
 
+STATICFILES_DIRS = [
+    BASE_DIR / "Eva_2/static",  # Aquí se espera que pongas tu carpeta 'static' con tus archivos CSS
+]
+STATIC_ROOT = BASE_DIR / "staticfiles"
 # Media files (Uploaded files)
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')

@@ -1,0 +1,41 @@
+{% extends "luchadores/base.html" %}
+
+{% load widget_tweaks %}  <!-- Cargar la librería widget_tweaks -->
+
+{% block title %}Crear/Editar Evento{% endblock %}
+
+{% block content %}
+<h1>{% if form.instance.id %}Editar Evento{% else %}Crear Evento{% endif %}</h1>
+<form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    
+    <div class="mb-3">
+        <label for="id_nombre" class="form-label">Nombre:</label>
+        {{ form.nombre|add_class:"form-control" }}  <!-- Usar el filtro add_class -->
+    </div>
+    
+    <div class="mb-3">
+        <label for="id_fecha" class="form-label">Fecha:</label>
+        {{ form.fecha|add_class:"form-control" }}  <!-- Usar el filtro add_class -->
+    </div>
+    
+    <div class="mb-3">
+        <label for="id_lugar" class="form-label">Lugar:</label>
+        {{ form.lugar|add_class:"form-control" }}  <!-- Usar el filtro add_class -->
+    </div>
+    
+    <div class="mb-3">
+        <label for="id_imagen" class="form-label">Imagen:</label>
+        {{ form.imagen|add_class:"form-control" }}  <!-- Usar el filtro add_class -->
+    </div>
+    
+    <div class="mb-3">
+        <label for="id_luchadores" class="form-label">Luchadores:</label>
+        {{ form.luchadores|add_class:"form-select" }}  <!-- Usar el filtro add_class -->
+    </div>
+
+    <button type="submit" class="btn btn-primary">
+        {% if form.instance.id %}Guardar Cambios{% else %}Crear Evento{% endif %}
+    </button>
+</form>
+{% endblock %}

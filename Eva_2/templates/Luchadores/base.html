@@ -6,26 +6,41 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{% block title %}Mi Aplicación{% endblock %}</title>
     {% load static %}
-    <link rel="stylesheet" href="{% static 'css/styles.css' %}"> <!-- Enlace a un CSS externo si lo tienes -->
+    <!-- Agregar el CDN de Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEJ6tQm5A1pO5mr0w1hKq72p2foTz9sEYzAq49oOHff0V8s0saHptFf8yxk9Y" crossorigin="anonymous">
+    <!-- Agregar un archivo CSS personalizado -->
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
 </head>
 <body>
-    <header>
+    <header class="bg-primary text-white text-center py-4">
         <h1>Bienvenido a la Aplicación de Luchadores</h1>
-        <nav>
-            <ul>
-                <li><a href="{% url 'listar_luchadores' %}">Inicio</a></li>
-                <li><a href="{% url 'crear_luchador' %}">Agregar Luchador</a></li>
-            </ul>
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+            <div class="container-fluid">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'listar_luchadores' %}">Inicio</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'crear_luchador' %}">Agregar Luchador</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'listar_eventos' %}">Gestionar Eventos</a> <!-- Enlace a los eventos -->
+                    </li>
+                </ul>
+            </div>
         </nav>
     </header>
 
-    <main>
+    <main class="container mt-5">
         {% block content %}
         {% endblock %}
     </main>
 
-    <footer>
+    <footer class="bg-dark text-white text-center py-3">
         <p>&copy; 2024 Mi Aplicación</p>
     </footer>
+
+    <!-- Agregar el CDN de Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pzjw8f+ua7Kw1TIq0x7Mw9dr6fzXkvlM5r2f5cF0Tz5mfi8AWv49f0f2RsQqSsbz" crossorigin="anonymous"></script>
 </body>
 </html>

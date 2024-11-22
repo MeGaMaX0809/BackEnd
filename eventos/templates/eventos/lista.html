@@ -1,0 +1,25 @@
+{% extends "luchadores/base.html" %}
+
+{% load widget_tweaks %}  <!-- Cargar la librería widget_tweaks -->
+
+{% block title %}Lista de Eventos{% endblock %}
+
+{% block content %}
+<h1>Lista de Eventos</h1>
+<ul>
+    {% for evento in eventos %}
+        <li>
+            <strong>Evento:</strong> {{ evento.nombre }}<br>
+            <strong>Fecha:</strong> {{ evento.fecha }}<br>
+            <strong>Lugar:</strong> {{ evento.lugar }}<br>
+            <a href="{% url 'evento_detalle' evento.id %}">Ver detalles</a>
+            <a href="{% url 'editar_evento' evento.id %}" class="btn btn-warning">Editar</a>
+            <a href="{% url 'eliminar_evento' evento.id %}" class="btn btn-danger"
+               onclick="return confirm('¿Estás seguro de que quieres eliminar este evento?')">Eliminar</a>
+        </li>
+    {% empty %}
+        <li>No hay eventos registrados aún.</li>
+    {% endfor %}
+</ul>
+<a href="{% url 'crear_evento' %}" class="btn btn-primary">Crear Nuevo Evento</a>
+{% endblock %}
